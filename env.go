@@ -3,6 +3,7 @@ package env
 import (
 	"context"
 	"github.com/asd864613087/env/consts"
+	"github.com/gin-gonic/gin"
 	"net/http"
 	"os"
 )
@@ -53,3 +54,29 @@ func SetHeaderLogLevel(req *http.Request, logLevel string) *http.Request {
 	req.Header.Set(consts.HEADER_LOG_LEVEL, logLevel)
 	return req
 }
+
+func SetHeaderNamespace(req *http.Request, namespace string) *http.Request {
+	req.Header.Set(consts.HEADER_NAMESPACE, namespace)
+	return req
+}
+
+func SetGinCtxPsm(c *gin.Context, psm string) *gin.Context {
+	c.Set(consts.CTX_PSM, psm)
+	return c
+}
+
+func SetGinCtxSourcePsm(c *gin.Context, sourcePsm string ) *gin.Context {
+	c.Set(consts.CTX_SOURCE_PSM, sourcePsm)
+	return c
+}
+
+func SetGinCtxLogId(c *gin.Context, logId string) *gin.Context {
+	c.Set(consts.CTX_LOG_ID, logId)
+	return c
+}
+
+func SetGinCtxLogLevel(c *gin.Context, logLevel string) *gin.Context {
+	c.Set(consts.CTX_LOG_LEVEL, logLevel)
+	return c
+}
+
