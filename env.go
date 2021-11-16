@@ -30,6 +30,16 @@ func GetCtxPsm(ctx context.Context) string {
 	return v.(string)
 }
 
+func GetCtxLogId(ctx context.Context) string {
+	v := ctx.Value(consts.CTX_LOG_ID)
+	return v.(string)
+}
+
+func GetCtxLogLevel(ctx context.Context) string {
+	v := ctx.Value(consts.CTX_LOG_LEVEL)
+	return v.(string)
+}
+
 func SetHeaderSourcePsm(req *http.Request, sourcePsm string) *http.Request {
 	req.Header.Set(consts.HEADER_SOURCE_PSM, sourcePsm)
 	return req
