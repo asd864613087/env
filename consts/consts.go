@@ -21,4 +21,9 @@ const (
 	CTX_DEST_PSM   = "dest_psm"
 	CTX_LOG_ID     = "log_id"
 	CTX_LOG_LEVEL  = "log_level"
+
+	// Standard For Metrics Label Name
+	METRICS_PSM = "psm"
+	METRICS_POD_NAME = "pod_name"
+	METRICS_NAMESPACE = "namespace"
 )

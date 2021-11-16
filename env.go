@@ -129,3 +129,14 @@ func SetGinCtxLogLevel(c *gin.Context, logLevel string) *gin.Context {
 	return c
 }
 
+/*
+	Metrics 的 constLabel
+ */
+
+func GetConstLabels() map[string]string {
+	return map[string]string{
+		consts.METRICS_PSM: GetPsm(),
+		consts.METRICS_NAMESPACE: GetNamespace(),
+		consts.METRICS_POD_NAME: GetPodName(),
+	}
+}
