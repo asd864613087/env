@@ -1,7 +1,7 @@
 package env
 
 import (
-	"env/consts"
+	"github.com/asd864613087/env/consts"
 	"os"
 )
 
