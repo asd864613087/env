@@ -8,6 +8,9 @@ import (
 	"os"
 )
 
+/*
+	获取环境变量
+ */
 func GetPsm() string {
 	return os.Getenv(consts.ENV_PSM)
 }
@@ -19,6 +22,10 @@ func GetNamespace() string {
 func GetPodName() string {
 	return os.Getenv(consts.ENV_PODNAME)
 }
+
+/*
+	从Ctx中获取变量
+*/
 
 func GetCtxSourcePsm(ctx context.Context) string {
 	v := ctx.Value(consts.CTX_SOURCE_PSM)
@@ -39,6 +46,10 @@ func GetCtxLogLevel(ctx context.Context) string {
 	v := ctx.Value(consts.CTX_LOG_LEVEL)
 	return v.(string)
 }
+
+/*
+	设置请求下游时Header的KV，ginex的rawcall使用
+*/
 
 func SetHeaderSourcePsm(req *http.Request, sourcePsm string) *http.Request {
 	req.Header.Set(consts.HEADER_SOURCE_PSM, sourcePsm)
@@ -74,6 +85,29 @@ func SetHeaderPodName(req *http.Request, podName string) *http.Request {
 	req.Header.Set(consts.HEADER_POD_NAME, podName)
 	return req
 }
+
+/*
+	从Header中获取参数，ginex Log中间件使用
+ */
+func GetHeaderSourcePsmFromGinCtx(c *gin.Context) string{
+	v := c.GetHeader(consts.HEADER_SOURCE_PSM)
+	return v
+}
+
+func GetHeaderLogLevelFromGinCtx(c *gin.Context) string{
+	v := c.GetHeader(consts.HEADER_LOG_LEVEL)
+	return v
+}
+
+func GetHeaderLogIdFromGinCtx(c *gin.Context) string{
+	v := c.GetHeader(consts.HEADER_LOG_ID)
+	return v
+}
+
+
+/*
+	往gin.Context中设置参数，ginex的log中间件使用
+ */
 
 func SetGinCtxPsm(c *gin.Context, psm string) *gin.Context {
 	c.Set(consts.CTX_PSM, psm)
