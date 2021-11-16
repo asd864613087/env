@@ -60,6 +60,11 @@ func SetHeaderNamespace(req *http.Request, namespace string) *http.Request {
 	return req
 }
 
+func SetHeaderPodName(req *http.Request, podName string) *http.Request {
+	req.Header.Set(consts.HEADER_POD_NAME, podName)
+	return req
+}
+
 func SetGinCtxPsm(c *gin.Context, psm string) *gin.Context {
 	c.Set(consts.CTX_PSM, psm)
 	return c
