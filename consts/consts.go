@@ -5,6 +5,8 @@ const (
 	ENV_PSM       = "PSM"
 	ENV_NAMESPACE = "NAMESPACE"
 	ENV_PODNAME   = "HOSTNAME"
+	ENV_PODIP     = "POD_IP"
+	ENV_NODENAME  = "POD_NODE_NAME"
 
 	// Standard For Http Params Header Name
 	HEADER_SOURCE_PSM = "Paas-Source-Psm"
@@ -23,7 +25,7 @@ const (
 	CTX_LOG_LEVEL  = "log_level"
 
 	// Standard For Metrics Label Name
-	METRICS_PSM = "psm"
-	METRICS_POD_NAME = "pod_name"
+	METRICS_PSM       = "psm"
+	METRICS_POD_NAME  = "pod_name"
 	METRICS_NAMESPACE = "namespace"
 )

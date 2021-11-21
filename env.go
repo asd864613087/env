@@ -23,6 +23,14 @@ func GetPodName() string {
 	return os.Getenv(consts.ENV_PODNAME)
 }
 
+func GetPodIp() string {
+	return os.Getenv(consts.ENV_PODIP)
+}
+
+func GetPodNodeName() string {
+	return os.Getenv(consts.ENV_NODENAME)
+}
+
 /*
 	从Ctx中获取变量
 */
